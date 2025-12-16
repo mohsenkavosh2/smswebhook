@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>وب‌هوک پیامک من</title>
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 28px;
+        }
+        
+        .persian {
+            font-family: 'B Nazanin', 'Iranian Sans', Tahoma;
+        }
+        
+        .status {
+            background: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            display: inline-block;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        
+        .url-box {
+            background: #f8f9fa;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            direction: ltr;
+            text-align: left;
+            overflow-x: auto;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+            font-size: 16px;
+        }
+        
+        .instructions {
+            background: #e7f3ff;
+            border-right: 5px solid #007bff;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: right;
+        }
+        
+        .step {
+            margin: 10px 0;
+            padding-right: 10px;
+        }
+        
+        .btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        .footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 سرویس وب‌هوک پیامک</h1>
+        <p class="persian">تبدیل پیامک به کلید کامپیوتر</p>
+        
+        <div class="status">✅ فعال و آماده به کار</div>
+        
+        <div class="url-box">
+            <strong>آدرس وب‌هوک شما:</strong><br>
+            <code id="webhook-url">در حال بارگذاری...</code>
+        </div>
+        
+        <div class="instructions">
+            <h3 class="persian">📋 راهنمای استفاده:</h3>
+            <div class="step persian">۱. این آدرس را در پنل پیامک خود وارد کنید</div>
+            <div class="step persian">۲. هنگام دریافت پیام "1" در پنل، این آدرس فراخوانی می‌شود</div>
+            <div class="step persian">۳. سیگنال فشار دادن کلید S ارسال می‌شود</div>
+        </div>
+        
+        <a href="#" id="test-link" class="btn">تست وب‌هوک</a>
+        
+        <div class="footer persian">
+            ساخته شده با GitHub + Vercel | همیشه رایگان
+        </div>
+    </div>
+
+    <script>
+        // نمایش آدرس وب‌هوک
+        const baseUrl = window.location.origin;
+        const webhookUrl = baseUrl + '/api/sms';
+        document.getElementById('webhook-url').textContent = webhookUrl;
+        
+        // لینک تست
+        document.getElementById('test-link').href = webhookUrl;
+        
+        // نمایش آدرس در کنسول
+        console.log('🌐 آدرس وب‌هوک:', webhookUrl);
+        console.log('📱 برای تست، این دستور را در ترمینال اجرا کنید:');
+        console.log(`curl -X POST ${webhookUrl} -H "Content-Type: application/json" -d '{"text":"1"}'`);
+    </script>
+</body>
+</html>
