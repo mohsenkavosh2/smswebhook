@@ -1,0 +1,15 @@
+{
+  "name": "sms-webhook",
+  "version": "1.0.0",
+  "description": "Webhook for SMS to key press",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "engines": {
+    "node": "22.x"
+  }
+}
